@@ -28,11 +28,14 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: my-react-app/package-lock.json
 
       - name: Install dependencies
+        working-directory: my-react-app
         run: npm ci
 
       - name: Build
+        working-directory: my-react-app  
         run: npm run build
 
       - name: Setup Pages
